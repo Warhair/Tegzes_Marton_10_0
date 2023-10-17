@@ -9,6 +9,7 @@ class participates extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'participate_id',
         'present',
         'event_id',
         'user_id'

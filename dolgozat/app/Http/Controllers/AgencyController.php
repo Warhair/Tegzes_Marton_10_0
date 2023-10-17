@@ -7,47 +7,58 @@ use App\Models\agency;
 
 class AgencyController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $tasks = response()->json(agency::all());
         return $tasks;
     }
 
-    public function show($id){
+    public function show($id)
+    {
         //az azonosító alapján megkeresi
         $task = response()->json(agency::find($id));
         return $task;
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         //az azonosító alapján megkeresi
         agency::find($id)->delete;
         return redirect('/task/list');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $task = new agency();
-        $task->title = $request->title;
-        $task->description = $request->description;
-        $task->end_date = $request->end_date;
-        $task->user_id = $request->user_id;
-        $task->status = $request->status;
+        $task->name = $request->string;
+        $task->country = $request->string;
+        $task->type = $request->string;
         $task->save();
         return redirect('/task/list');
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $task = agency::find($id);
-        $task->title = $request->title;
-        $task->description = $request->description;
-        $task->end_date = $request->end_date;
-        $task->user_id = $request->user_id;
-        $task->status = $request->status;
+        $task->name = $request->string;
+        $task->country = $request->string;
+        $task->type = $request->string;
+        $task->save();
+        return redirect('/task/list');
+    }
+    public function get(Request $request, $id)
+    {
+        $task = agency::find($id);
+        $task->name = $request->string;
+        $task->country = $request->string;
+        $task->type = $request->string;
         $task->save();
         return redirect('/task/list');
     }
 
     //view file-ok
-    public function listView(){
+    public function listView()
+    {
         $tasks = agency::all();
         return view('agency.list', ['tasks' => $tasks]);
     }

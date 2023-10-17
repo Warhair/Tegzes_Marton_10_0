@@ -22,9 +22,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        User::create(['name' => 'Ádám', 'email'=> 'diak1@gmail.com','password'=>'123','vip'=>true]);
-        User::create(['name' => 'Laci', 'email'=> 'diak2@gmail.com','password'=>'123','vip'=>false]);
-        User::create(['name' => 'Sanyi', 'email'=> 'diak3@gmail.com','password'=>'123','vip'=>false]);
+        User::create(['name' => 'Ádám', 'email' => 'diak1@gmail.com', 'password' => '123', 'vip' => true]);
+        User::create(['name' => 'Laci', 'email' => 'diak2@gmail.com', 'password' => '123', 'vip' => false]);
+        User::create(['name' => 'Sanyi', 'email' => 'diak3@gmail.com', 'password' => '123', 'vip' => false]);
     }
 
     /**
